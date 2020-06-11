@@ -1,0 +1,12 @@
+@font-face {
+        font-family: "poppins-500";
+        src: url("./assets/fonts/poppins-500.ttf") format("truetype");
+      }
+@font-face {
+        font-family: "poppins-800";
+        src: url("./assets/fonts/poppins-800.ttf") format("truetype");
+      }
+@font-face {
+        font-family: "roboto-regular";
+        src: url("./assets/fonts/roboto-regular.ttf") format("truetype");
+      }
