@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="header :: common-header"></head>
+<body>
+<div th:replace="header :: navbar"></div>
+
+<form th:action="@{/addMovie}" th:object="${movie}" method="POST">
+    Movie Name: <input type="text" name="name" th:field="*{name}"/><br>
+    Description: <input type="text" name="description" th:field="*{description}"/>
+    <button name="submit" type="submit" value="0">Submit</button>
+</form>
+
+
+<div th:replace="header :: body-end-scripts"></div>
+</body>
+</html>

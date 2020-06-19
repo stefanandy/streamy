@@ -1,7 +1,6 @@
 package com.streamy.streamy.controllers;
 
 import com.streamy.streamy.models.AuthRequest;
-import com.streamy.streamy.models.AuthResponse;
 import com.streamy.streamy.models.User;
 import com.streamy.streamy.repositorys.UserRepository;
 import com.streamy.streamy.services.JwtUtil;
@@ -9,10 +8,6 @@ import com.streamy.streamy.services.MyUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +20,8 @@ public class LoginController {
     @Autowired
     private UserRepository repository;
 
-    @Autowired
-    private AuthenticationManager authManager;
+  //  @Autowired
+    //private AuthenticationManager authManager;
 
     @Autowired
     private JwtUtil jwtTokenUtil;
@@ -37,7 +32,7 @@ public class LoginController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @RequestMapping(value = "/api/auth", method= RequestMethod.POST ,produces = MediaType.APPLICATION_JSON_VALUE)
+   /* @RequestMapping(value = "/api/auth", method= RequestMethod.POST ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createAuthToken(@RequestBody AuthRequest request)throws Exception {
         try{
             authManager.authenticate(
@@ -51,7 +46,7 @@ public class LoginController {
         final String jwt = jwtTokenUtil.generateToken(userDetail);
 
         return ResponseEntity.ok(new AuthResponse(jwt));
-    }
+    }*/
 
     @RequestMapping(value = "/api/register", method= RequestMethod.POST ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity registerAuth(@RequestBody AuthRequest request)throws Exception {

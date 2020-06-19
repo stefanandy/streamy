@@ -2,9 +2,9 @@ package com.streamy.streamy.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name ="rating",schema = "public")
@@ -19,22 +19,22 @@ public class Rating implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "rev_id")
-    private Set<Reviewer> reviewer =new HashSet<Reviewer>();
+    private List<Reviewer> reviewer =new ArrayList<Reviewer>();
 
     @Column(name = "movie_id")
     private int movie_id;
 
     @Column(name = "rev_stars")
-    private int rev_stars;
+    public int rev_stars;
 
     @Column(name="rev_date")
     private Date rev_date;
 
-    public Set<Reviewer> getReviewer() {
+    public List<Reviewer> getReviewer() {
         return reviewer;
     }
 
-    public void setReviewer(Set<Reviewer> reviewer) {
+    public void setReviewer(List<Reviewer> reviewer) {
         this.reviewer = reviewer;
     }
 

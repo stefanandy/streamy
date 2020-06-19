@@ -2,10 +2,23 @@ package com.streamy.streamy.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
+
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = Movie.avg_rating,
+                procedureName = "avg_rating",
+                parameters = {
+                        @StoredProcedureParameter(type = Integer.class, mode = ParameterMode.IN),
+                        @StoredProcedureParameter(type = Double.class, mode = ParameterMode.INOUT),
+                }
+        )})
+
 @Entity
 @Table(name= "movies",schema = "public")
 public class Movie implements Serializable {
 
+    public static final String avg_rating="avg_rating";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="movie_id")
@@ -25,7 +38,7 @@ public class Movie implements Serializable {
     @Column(name = "movie_lang")
     private String movieLanguage;
     @Column(name = "movie_year")
-    private String movieYear;
+    private int movieYear;
 
 
     public int getMovieID() {
@@ -76,11 +89,11 @@ public class Movie implements Serializable {
         this.movieLanguage = movieLanguage;
     }
 
-    public String getMovieYear() {
+    public int getMovieYear() {
         return movieYear;
     }
 
-    public void setMovieYear(String movieYear) {
+    public void setMovieYear(int movieYear) {
         this.movieYear = movieYear;
     }
 

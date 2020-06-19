@@ -12,7 +12,7 @@ public class Reviewer implements Serializable {
     private int rev_id;
 
     @Column(name = "rev_name")
-    private String rev_name;
+    public String rev_name;
 
     public int getRevID() {
         return rev_id;

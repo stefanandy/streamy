@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="header :: common-header"></head>
+<body>
+<div th:replace="header :: navbar"></div>
+
+<form th:action="@{/addRate}" th:object="${ratingSubmit}" method="POST">
+    Name: <input type="text" name="email" th:field="*{email}"/><br>
+    Stars: <input type="text" name="stars" th:field="*{numberStars}"/>
+    MovieId: <input type="text" name="movieId" th:field="*{movie_id}"/>
+    <button name="submit" type="submit" value="0">Submit</button>
+</form>
+
+
+
+<div th:replace="header :: body-end-scripts"></div>
+</body>
+</html>
